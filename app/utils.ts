@@ -174,3 +174,30 @@ export function autoGrowTextArea(dom: HTMLTextAreaElement) {
 export function getCSSVar(varName: string) {
   return getComputedStyle(document.body).getPropertyValue(varName).trim();
 }
+
+//获取当前设备信息
+export function getAccessSource(): number {
+  const userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.includes("miniprogram")) {
+    // return '微信小程序';
+    // 10:微信小程序 20:微信公众号 30:手机H5 40:电脑PC 50:苹果APP 60:安卓APP
+    return 10;
+  } else if (userAgent.includes("micromessenger")) {
+    // return '微信公众号';
+    return 20;
+  } else if (userAgent.includes("mobile")) {
+    // return '手机H5';
+    return 30;
+  } else if (userAgent.includes("windows") || userAgent.includes("macintosh")) {
+    // return '电脑PC';
+    return 40;
+  } else if (userAgent.includes("iphone")) {
+    // return '苹果APP';
+    return 50;
+  } else if (userAgent.includes("android")) {
+    // return '安卓APP';
+    return 60;
+  }
+  //   return '未知访问来源'；
+  return 0;
+}

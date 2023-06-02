@@ -168,6 +168,41 @@ const cn = {
       SubTitle: "值越大，越有可能扩展到新话题",
     },
   },
+  User: {
+    Title: "注册/登录",
+    SubTitle: "账户中心",
+    Form: {
+      Account: {
+        Title: "账号",
+        Placeholder: "请输入登录账户",
+      },
+      Password: {
+        Title: "密码",
+        Placeholder: "请输入登录密码",
+      },
+      Name: {
+        Title: "用户名",
+        Placeholder: "请输入用户名",
+      },
+      Code: {
+        Title: "获取验证码",
+        PhonePlaceholder: "请输入手机收到的6位验证码",
+        EmailPlaceholder: "请输入邮箱收到的6位验证码",
+      },
+      InviteCode: {
+        Title: "邀请码",
+        Placeholder: "注册邀请码",
+      },
+    },
+    Login: {
+      Title: "登录",
+      Button: "登录账号",
+    },
+    Register: {
+      Title: "注册",
+      Button: "注册账号",
+    },
+  },
   Store: {
     DefaultTopic: "新的聊天",
     BotHello: "有什么可以帮你的吗",

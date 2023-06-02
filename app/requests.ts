@@ -9,6 +9,8 @@ import {
 } from "./store";
 import { showToast } from "./components/ui-lib";
 import { ACCESS_CODE_PREFIX } from "./constant";
+import { getAccessSource } from "./utils";
+import getConfig from "next/config";
 
 const TIME_OUT_MS = 60000;
 
@@ -245,6 +247,29 @@ export async function requestWithPrompt(
 
   return res?.choices?.at(0)?.message?.content ?? "";
 }
+
+export async function requestLogin(account: string, password: string) {
+  //获取当前设备信息
+  var device = getAccessSource();
+  try {
+    // const openaiUrl = useAccessStore.getState().openaiUrl;
+    // const config = getConfig()
+    // console.log(config);
+
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...getHeaders(),
+      },
+      body: JSON.stringify({ account, password, device }),
+    });
+    return res;
+  } catch (err) {
+    console.error("NetWork Error", err);
+  }
+}
+export async function requestRegister() {}
 
 // To store message streaming controller
 export const ControllerPool = {

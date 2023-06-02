@@ -40,6 +40,7 @@ import { ErrorBoundary } from "./error";
 import { InputRange } from "./input-range";
 import { useNavigate } from "react-router-dom";
 import { Avatar, AvatarPicker } from "./emoji";
+import getConfig from "next/config";
 
 function EditPromptModal(props: { id: number; onClose: () => void }) {
   const promptStore = usePromptStore();
@@ -218,6 +219,9 @@ export function Settings() {
   const currentVersion = formatVersionDate(updateStore.version);
   const remoteId = formatVersionDate(updateStore.remoteVersion);
   const hasNewVersion = currentVersion !== remoteId;
+
+  const publicConfig = getConfig();
+  console.log(publicConfig);
 
   function checkUpdate(force = false) {
     setCheckingUpdate(true);
