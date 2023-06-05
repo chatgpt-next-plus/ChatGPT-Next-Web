@@ -256,7 +256,7 @@ export async function requestLogin(account: string, password: string) {
     // const config = getConfig()
     // console.log(config);
 
-    const res = await fetch("/api/login", {
+    const res = await fetch("/newApi/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
